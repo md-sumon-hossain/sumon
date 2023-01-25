@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>iStore</title>
+    <title>SUMON</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    @vite('resources/css/app.css')
+    @notifyCss
 </head>
 <body>
     <div class="h-full  w-full py-16 px-4">
@@ -17,7 +19,7 @@
                     <a href="javascript:void(0)"   class="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none  text-gray-800 cursor-pointer">Make sure you worth it.</a>
                     </p>
                 </div>  
-                <form action="#" method="POST">
+                <form action="{{ route('loginPost') }}" method="POST">
                     @csrf
                     <div>
                         <label id="email" class="text-sm font-medium leading-none text-gray-800">Email</label>
@@ -77,5 +79,7 @@
             </div>
         </div>
     </div>
+    <x:notify-messages />
+    @notifyJs
 </body>
 </html>

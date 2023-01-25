@@ -22,13 +22,15 @@ Route::get('/',[HomeController::class,'home'])->name('home');
 
 #BACKEND
 Route::get('/login',[AuthController::class,'login'])->name('login');
+Route::post('/login-post',[AuthController::class,'loginPost'])->name('loginPost');
+Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 Route::prefix('/admin')->group(function(){
     Route::name('admin.')->group(function(){
         #dashboard
         Route::get('/',[DashboardController::class,'dashboard'])->name('dashboard');
         #user
         Route::controller(UserController::class)->group(function(){
-            Route::get('/user-create','create')->name('user.create');
+            Route::get('/user-profile','profile')->name('user.profile');
         });
     });
 });
