@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>iStore</title>
     @vite('resources/css/app.css')
-    {{-- @notifyCss --}}
+    @notifyCss
     <link href="{{ asset('backend/master/css/googleapi.css') }}" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ asset('backend/master/css/tailwind.output.css') }}"/>
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.6.0/dist/flowbite.min.css" />
@@ -33,8 +33,8 @@
         $('.ckeditor').ckeditor();
         });
       </script> --}}
-    {{-- <x:notify-messages />
-    @notifyJs --}}
+    <x:notify-messages />
+    @notifyJs
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     {{-- <script>
       $.ajaxSetup({
