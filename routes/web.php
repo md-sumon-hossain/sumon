@@ -31,6 +31,7 @@ Route::prefix('/admin')->group(function(){
         #user
         Route::controller(UserController::class)->group(function(){
             Route::get('/user-profile','profile')->name('user.profile');
+            Route::get('/edit-profile/{id}','edit')->name('user.edit');
         });
     });
 });

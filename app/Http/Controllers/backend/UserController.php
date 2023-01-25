@@ -12,4 +12,8 @@ class UserController extends Controller
         $user=new User();
         return view('backend.pages.user.profile',compact('user'));
     }
+    public function edit($id){
+        $user=auth()->user();
+        return view('backend.pages.user.edit',compact('user'));
+    }
 }
