@@ -17,7 +17,7 @@
 					</svg>{{$user->address}}</p>
 				<p class="pt-8 text-sm">Totally optional short description about yourself, what you do and so on.</p>
 				<div class="flex justify-end space-x-4 m-7">
-                    <a href="{{ route('admin.user.edit',auth()->user()->id) }}">
+                    <a href="{{ route('admin.profile.edit',auth()->user()->id) }}">
                         <button class="px-6 py-2.5 bg-white-600 text-black font-medium text-xsleading-tight uppercase rounded shadow-md hover:bg-green-500  hover:text-white hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lgtransition duration-150 ease-in-out">Update</button>
                     </a>
                 </div> 

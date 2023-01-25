@@ -30,8 +30,9 @@ Route::prefix('/admin')->group(function(){
         Route::get('/',[DashboardController::class,'dashboard'])->name('dashboard');
         #user
         Route::controller(UserController::class)->group(function(){
-            Route::get('/user-profile','profile')->name('user.profile');
-            Route::get('/edit-profile/{id}','edit')->name('user.edit');
+            Route::get('/user-profile','profile')->name('profile');
+            Route::get('/edit-profile/{id}','edit')->name('profile.edit');
+            Route::put('/update-profile/{id}','update')->name('profile.update');
         });
     });
 });

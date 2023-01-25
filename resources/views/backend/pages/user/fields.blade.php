@@ -16,7 +16,7 @@
         </div>
         <div class=" mt-4">
             <label for="address" class="block mb-2  font-medium text-gray-900 dark:text-white">Address</label>
-            <input type="email" name="address" id="address" aria-describedby="address-explanation" class="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-gray-900 focus:border-gray-900 block w-96 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-900 dark:focus:border-gray-900" placeholder="Your address" value="{{old('address',$user->address)}}">
+            <input type="text" name="address" id="address" aria-describedby="address-explanation" class="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-gray-900 focus:border-gray-900 block w-96 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-900 dark:focus:border-gray-900" placeholder="Your address" value="{{old('address',$user->address)}}">
         </div>
     </div>
     <div class=" ml-5">
@@ -36,8 +36,7 @@
         </div>
         <div class=" mt-4">
             <label for="image" class="block mb-2  font-medium text-gray-900 dark:text-white">Image</label>
-            <input type="file" id="image" aria-describedby="image-explanation" value="{{old('image',$user->image)}}">
-    
+            <input type="file" name="image" id="image" aria-describedby="image-explanation" value="{{old('image',$user->image)}}">
         </div>
     </div>
 </div>
