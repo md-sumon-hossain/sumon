@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\website\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('website.home');
-});
+#FRONTEND
+Route::get('/',[HomeController::class,'home'])->name('home');
+
+#BACKEND
+Route::get('/admin',[DashboardController::class,'dashboard'])->name('dashboard');
