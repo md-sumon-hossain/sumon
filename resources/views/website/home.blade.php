@@ -52,9 +52,9 @@
                     </div>
                     <div class="tab-content active-tab" id="skills">
                         <ul>
-                            <li><span>UI/UX</span><br>Ui Ux Designer</li>
-                            <li><span>Backend Development</span><br>Backend Development</li>
-                            <li><span>App Development</span><br>Mobile App Development</li>
+                            @foreach ($skills as $skill)
+                            <li><span>{{ $skill->title }}</span><br>{{ $skill->details }}</li>
+                            @endforeach
                         </ul>
                     </div>
                     <div class="tab-content" id="experiences">

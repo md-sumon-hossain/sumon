@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\website;
 
 use App\Http\Controllers\Controller;
+use App\Models\Skill;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function home(){
-        return view('website.home');
+        $skills=Skill::all();
+        return view('website.home',compact('skills'));
     }
 }
