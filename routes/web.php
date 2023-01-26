@@ -39,6 +39,7 @@ Route::prefix('/admin')->group(function(){
         Route::controller(SkillController::class)->group(function(){
             Route::get('/skill-index','index')->name('skill.index');
             Route::get('/skill-create','create')->name('skill.create');
+            Route::post('/skill-store','store')->name('skill.store');
         });
     });
 });

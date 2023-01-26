@@ -42,7 +42,7 @@
     <tbody>
       <tr class="">
         <td class="py-4 px-6">{{ $key+1 }}</td>
-        <td class="py-4 px-6 uppercase">{{ $skill->name }}</td>
+        <td class="py-4 px-6 uppercase">{{ $skill->title }}</td>
         <td class="py-4 px-6">{{ $skill->details }}</td>
         <td class="py-4 px-6">
           <div class="flex">

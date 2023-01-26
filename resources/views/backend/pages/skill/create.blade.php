@@ -4,7 +4,7 @@
     <h1 class="m-5 text-5xl">Add a new skill</h1>
 </div>
 <div class="m-10">
-    <form action="#" method="POST">
+    <form action="{{ route('admin.skill.store') }}" method="POST">
         @csrf
         @includeIf('backend.pages.skill.fields')
         <div class="flex mt-10">

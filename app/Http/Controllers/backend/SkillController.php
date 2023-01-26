@@ -22,4 +22,21 @@ class SkillController extends Controller
         $skill= new Skill();
         return view('backend.pages.skill.create',compact('skill'));
     }
+
+    public function store(Request $request){
+        $request->validate([
+            'title'=>'required',
+        ]);
+        try {
+            Skill::create([
+                'title'=>$request->title,
+                'details'=>$request->details,
+            ]);
+            notify()->success('Skill added Successfully');
+            return to_route('admin.skill.index');
+        } catch (\Throwable $th) {
+            notify()->error('SOmething went wrong');
+            return redirect()->back();
+        }
+    }
 }
