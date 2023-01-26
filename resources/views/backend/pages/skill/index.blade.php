@@ -4,7 +4,9 @@
   <h1 class=" text-3xl">Skills</h1>
 </div>
 <div class=" m-5">
+  <a href="{{ route('admin.skill.create') }}">
   <button type="button" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Add Skill +</button>
+</a>
 </div>
 <div>
   <div class="flex">

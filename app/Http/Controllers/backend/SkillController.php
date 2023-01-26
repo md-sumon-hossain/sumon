@@ -17,4 +17,9 @@ class SkillController extends Controller
         }
         return view('backend.pages.skill.index',compact('search','skills'));
     }
+
+    public function create(){
+        $skill= new Skill();
+        return view('backend.pages.skill.create',compact('skill'));
+    }
 }
