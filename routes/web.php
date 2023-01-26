@@ -40,6 +40,8 @@ Route::prefix('/admin')->group(function(){
             Route::get('/skill-index','index')->name('skill.index');
             Route::get('/skill-create','create')->name('skill.create');
             Route::post('/skill-store','store')->name('skill.store');
+            Route::get('/skill-edit/{id}','edit')->name('skill.edit');
+            Route::put('/skill-update/{id}','update')->name('skill.update');
         });
     });
 });

@@ -39,4 +39,27 @@ class SkillController extends Controller
             return redirect()->back();
         }
     }
+
+    public function edit($id){
+        $skill=Skill::find($id);
+        return view('backend.pages.skill.edit',compact('skill'));
+    }
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'title'=>'required',
+        ]);
+        $skill=Skill::find($id);
+        try {
+            $skill->update([
+                'title'=>$request->title,
+                'details'=>$request->details,
+            ]);
+            notify()->success('Skill updated Successfully');
+            return to_route('admin.skill.index');
+        } catch (\Throwable $th) {
+            notify()->error('SOmething went wrong');
+            return redirect()->back();
+        }
+    }
 }
