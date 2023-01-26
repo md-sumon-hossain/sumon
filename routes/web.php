@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\backend\AuthController;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\SkillController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\website\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,10 @@ Route::prefix('/admin')->group(function(){
             Route::get('/user-profile','profile')->name('profile');
             Route::get('/edit-profile/{id}','edit')->name('profile.edit');
             Route::put('/update-profile/{id}','update')->name('profile.update');
+        });
+        #Skill
+        Route::controller(SkillController::class)->group(function(){
+            Route::get('/skill-index','index')->name('skill.index');
         });
     });
 });

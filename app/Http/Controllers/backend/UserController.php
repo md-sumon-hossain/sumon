@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\backend;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use function GuzzleHttp\Promise\all;
+use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
@@ -30,6 +31,7 @@ class UserController extends Controller
        $user=auth()->user();
        $filename=null;
        if($request->hasFile('image')){
+        File::delete(public_path().'/uploads/', auth()->user()->image);
         $file=$request->file('image');
         $filename=date('Ymdhis').'.'.$file->getClientOriginalExtension();
         $file->storeAs('/uploads',$filename);

@@ -40,7 +40,7 @@
         <div class="container">
             <div class="row">
                 <div class="about-col-1">
-                    <img src="images/cr7.jpeg" width="600px" style="border-radius: 3px;">
+                    <img src="{{ url('/uploads/',auth()->user()->image)}}" width="600px" style="border-radius: 3px;">
                 </div>
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
