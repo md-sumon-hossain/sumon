@@ -4,8 +4,8 @@
   <h1 class=" text-3xl">Education</h1>
 </div>
 <div class=" m-5">
-  <a href="#">
-  <button type="button" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Add Experience +</button>
+  <a href="{{ route('admin.education.create') }}">
+  <button type="button" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Add Education +</button>
 </a>
 </div>
 <div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Education;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
 
 class EducationController extends Controller
 {
@@ -20,25 +21,32 @@ class EducationController extends Controller
         return view('backend.pages.education.index',compact('educations','search'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        $education=new Education();
+        return view('backend.pages.education.create',compact('education'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'degree'=>'required',
+            'institution'=>'required'
+        ]);
+        try{
+            Education::create([
+                'degree'=>$request->degree,
+                'institution'=>$request->institution,
+                'from'=>$request->from,
+                'to'=>$request->from,
+            ]);
+            notify()->success('Education record added Successfully');
+            return to_route('admin.education.index');
+        }catch(\throwable $th){
+            notify()->error($th->getMessage());
+        }
     }
 
     /**

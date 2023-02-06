@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Experience;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
 
 class ExperienceController extends Controller
 {
@@ -41,14 +42,20 @@ class ExperienceController extends Controller
         }elseif($request->has('to')){
             $enddate = $request->to;
         }
-        Experience::create([
-            'designation'=>$request->designation,
-            'company'=>$request->company,
-            'from'=>$request->from,
-            'to'=>$enddate,
-        ]);
-        notify()->success('Experience Added Successfully');
-        return to_route('admin.experience.index');
+        
+        try{
+            Experience::create([
+                'designation'=>$request->designation,
+                'company'=>$request->company,
+                'from'=>$request->from,
+                'to'=>$enddate,
+            ]);
+            notify()->success('Experience Added Successfully');
+            return to_route('admin.experience.index');
+        }catch(\Throwable $th){
+            notify()->error($th->getMessage());
+        }
+        
     }
 
 
