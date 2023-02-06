@@ -9,8 +9,7 @@ use PhpParser\Node\Stmt\TryCatch;
 
 class ExperienceController extends Controller
 {
-    public function index()
-    {
+    public function index(){
         $search=request()->query('search');
         if($search){
             $experiences=Experience::where('designation','LIKE','%'.$search.'%')
@@ -22,16 +21,14 @@ class ExperienceController extends Controller
     }
 
 
-    public function create()
-    {
+    public function create(){
         $experience= new Experience();
         return view('backend.pages.experience.create',compact('experience'));
     }
 
 
     public $enddate;
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $request->validate([
             'designation'=>'required',
             'company'=>'required',
@@ -59,21 +56,18 @@ class ExperienceController extends Controller
     }
 
 
-    public function show($id)
-    {
+    public function show($id){
         //
     }
 
 
-    public function edit($id)
-    {
+    public function edit($id){
         $experience=Experience::find($id);
         return view('backend.pages.experience.edit',compact('experience'));
     }
 
 
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
         $request->validate([
             'designation'=>'required',
             'company'=>'required',
@@ -84,19 +78,23 @@ class ExperienceController extends Controller
         }elseif($request->has('to')){
             $enddate = $request->to;
         }
-        $experience->update([
-            'designation'=>$request->designation,
-            'company'=>$request->company,
-            'from'=>$request->from,
-            'to'=>$enddate,
-        ]);
-        notify()->success('Experience Updated Successfully');
-        return to_route('admin.experience.index');
+        try{
+            $experience->update([
+                'designation'=>$request->designation,
+                'company'=>$request->company,
+                'from'=>$request->from,
+                'to'=>$enddate,
+            ]);
+            notify()->success('Experience Updated Successfully');
+            return to_route('admin.experience.index');
+        }catch(\Throwable $th){
+            notify()->error($th->getMessage());
+            return to_route('admin.education.index');
+        }
     }
 
 
-    public function destroy($id)
-    {
+    public function destroy($id){
         Experience::find($id)->delete();
         notify()->success('Experience Deleted Successfully');
         return to_route('admin.experience.index');

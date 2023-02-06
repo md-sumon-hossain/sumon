@@ -10,8 +10,7 @@ use PhpParser\Node\Stmt\TryCatch;
 class EducationController extends Controller
 {
 
-    public function index()
-    {
+    public function index(){
         $search=request()->query('search');
         if($search){
             $educations=Education::where('degree','LIKE',"%$search%")->get();
@@ -22,15 +21,13 @@ class EducationController extends Controller
     }
 
 
-    public function create()
-    {
+    public function create(){
         $education=new Education();
         return view('backend.pages.education.create',compact('education'));
     }
 
 
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $request->validate([
             'degree'=>'required',
             'institution'=>'required'
@@ -46,41 +43,42 @@ class EducationController extends Controller
             return to_route('admin.education.index');
         }catch(\throwable $th){
             notify()->error($th->getMessage());
+            return to_route('admin.education.index');
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+
+    public function show($id){
+       //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+
+    public function edit($id){
+        $education=Education::find($id);
+        return view('backend.pages.education.edit',compact('education'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'degree'=>'required',
+            'institution'=>'required'
+        ]);
+        $education=Education::find($id);
+        try{
+            $education->update([
+                'degree'=>$request->degree,
+                'institution'=>$request->institution,
+                'from'=>$request->from,
+                'to'=>$request->from,
+            ]);
+            notify()->success('Education record updated Successfully');
+            return to_route('admin.education.index');
+        }catch(\throwable $th){
+            notify()->error($th->getMessage());
+            return to_route('admin.education.index');
+        }
+
     }
 
     /**
