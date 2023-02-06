@@ -16,5 +16,6 @@
 </div>
 <div class=" mt-4">
     <label for="present" class=" mb-2  font-medium text-gray-900 dark:text-white">Present</label>
-    <input type="checkbox" class="rounded-lg ml-3" id="present" name="present" value="present">
+    <input type="checkbox" class="rounded-lg ml-3" id="present" name="present" value="present"  
+    {{ $experience->to ? 'checked' : '' }}>
 </div>

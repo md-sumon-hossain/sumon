@@ -60,7 +60,8 @@ class ExperienceController extends Controller
 
     public function edit($id)
     {
-        //
+        $experience=Experience::find($id);
+        return view('backend.pages.experience.edit',compact('experience'));
     }
 
 
