@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\backend\AuthController;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\EducationController;
 use App\Http\Controllers\backend\ExperienceController;
 use App\Http\Controllers\backend\SkillController;
 use App\Http\Controllers\backend\UserController;
@@ -46,6 +47,7 @@ Route::prefix('/admin')->group(function(){
             Route::get('/skill-delete/{id}','delete')->name('skill.delete');
         });
         Route::resource('experience',ExperienceController::class);
+        Route::resource('education',EducationController::class);
     });
 });
 
