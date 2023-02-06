@@ -89,6 +89,8 @@ class EducationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Education::find($id)->delete();
+        notify()->success('Educational record deleted successfully');
+        return to_route('admin.education.index');
     }
 }
