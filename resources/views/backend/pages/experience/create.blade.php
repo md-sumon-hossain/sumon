@@ -4,7 +4,7 @@
     <h1 class="m-5 text-5xl">Add your Experience</h1>
 </div>
 <div class="m-10">
-    <form action="#" method="POST">
+    <form action="{{ route('admin.experience.store') }}" method="POST">
         @csrf
         @includeIf('backend.pages.experience.fields')
         <div class="flex mt-10">

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('designation')->nullable();
             $table->string('company')->nullable();
-            $table->date('from')->nullable();
-            $table->date('to')->nullable();
+            $table->string('from')->nullable();
+            $table->string('to')->nullable();
             $table->timestamps();
         });
     }

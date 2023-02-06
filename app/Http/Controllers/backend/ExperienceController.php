@@ -28,9 +28,27 @@ class ExperienceController extends Controller
     }
 
 
+    public $enddate;
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'designation'=>'required',
+            'company'=>'required',
+        ]);
+
+        if($request->has('present')){
+            $enddate = $request->present;
+        }elseif($request->has('to')){
+            $enddate = $request->to;
+        }
+        Experience::create([
+            'designation'=>$request->designation,
+            'company'=>$request->company,
+            'from'=>$request->from,
+            'to'=>$enddate,
+        ]);
+        notify()->success('Experience Added Successfully');
+        return to_route('admin.experience.index');
     }
 
 
