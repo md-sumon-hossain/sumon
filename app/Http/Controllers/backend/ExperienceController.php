@@ -67,12 +67,31 @@ class ExperienceController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'designation'=>'required',
+            'company'=>'required',
+        ]);
+        $experience=Experience::find($id);
+        if($request->has('present')){
+            $enddate = $request->present;
+        }elseif($request->has('to')){
+            $enddate = $request->to;
+        }
+        $experience->update([
+            'designation'=>$request->designation,
+            'company'=>$request->company,
+            'from'=>$request->from,
+            'to'=>$enddate,
+        ]);
+        notify()->success('Experience Updated Successfully');
+        return to_route('admin.experience.index');
     }
 
 
     public function destroy($id)
     {
-        //
+        Experience::find($id)->delete();
+        notify()->success('Experience Deleted Successfully');
+        return to_route('admin.experience.index');
     }
 }

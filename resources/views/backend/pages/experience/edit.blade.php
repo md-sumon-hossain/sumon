@@ -1,10 +1,10 @@
 @extends('backend.master')
 @section('content')
 <div class="m-5">
-    <h1 class="m-5 text-5xl">Update your skill</h1>
+    <h1 class="m-5 text-5xl">Update your Experience</h1>
 </div>
 <div class="m-10">
-    <form action="#" method="POST">
+    <form action="{{ route('admin.experience.update',$experience->id) }}" method="POST">
         @method('put')
         @csrf
         @includeIf('backend.pages.experience.fields')
