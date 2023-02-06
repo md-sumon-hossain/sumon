@@ -44,38 +44,36 @@ class ServiceController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+
+    public function show($id){
+        
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+
+    public function edit($id){
+        $service=Service::find($id);
+        return view('backend.pages.service.edit',compact('service'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title'=>'required',
+        ]);
+        $service=Service::find($id);
+        try{
+            $service->update([
+                'title'=>$request->title,
+                'description'=>$request->description,
+                'icon'=>$request->icon,
+            ]);
+            notify()->success('Service added successfully');
+            return to_route('admin.service.index');
+        }catch(\Throwable $th){
+            notify()->error($th->getMessage());
+            return redirect()->back();
+        }
     }
 
     /**
@@ -86,6 +84,8 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Service::find($id)->delete();
+        notify()->success('Service deleted successfully');
+        return to_route('admin.service.index');
     }
 }
