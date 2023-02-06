@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\backend\AuthController;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\ExperienceController;
 use App\Http\Controllers\backend\SkillController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\website\HomeController;
@@ -44,6 +45,7 @@ Route::prefix('/admin')->group(function(){
             Route::put('/skill-update/{id}','update')->name('skill.update');
             Route::get('/skill-delete/{id}','delete')->name('skill.delete');
         });
+        Route::resource('experience',ExperienceController::class);
     });
 });
 

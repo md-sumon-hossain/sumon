@@ -11,7 +11,7 @@ class SkillController extends Controller
     public function index(){
         $search=request()->query('search');
         if($search){
-            $skills=Skill::where('title','LIKE','%'.$search.'%');
+            $skills=Skill::where('title','LIKE','%'.$search.'%')->get();
         }else{
             $skills=Skill::all();
         }
