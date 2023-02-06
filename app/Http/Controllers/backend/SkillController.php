@@ -62,4 +62,10 @@ class SkillController extends Controller
             return redirect()->back();
         }
     }
+
+    public function delete($id){
+        Skill::find($id)->delete();
+        notify()->success('Skill has been deleted.');
+        return to_route('admin.skill.index');
+    }
 }

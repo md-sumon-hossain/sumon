@@ -40,7 +40,9 @@
         <div class="container">
             <div class="row">
                 <div class="about-col-1">
+                    @if (auth()->user())
                     <img src="{{ url('/uploads/',auth()->user()->image)}}" width="600px" style="border-radius: 3px;">
+                    @endif
                 </div>
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>

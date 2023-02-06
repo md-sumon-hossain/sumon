@@ -42,6 +42,7 @@ Route::prefix('/admin')->group(function(){
             Route::post('/skill-store','store')->name('skill.store');
             Route::get('/skill-edit/{id}','edit')->name('skill.edit');
             Route::put('/skill-update/{id}','update')->name('skill.update');
+            Route::get('/skill-delete/{id}','delete')->name('skill.delete');
         });
     });
 });
