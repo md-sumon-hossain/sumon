@@ -4,6 +4,7 @@ use App\Http\Controllers\backend\AuthController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\EducationController;
 use App\Http\Controllers\backend\ExperienceController;
+use App\Http\Controllers\backend\ServiceController;
 use App\Http\Controllers\backend\SkillController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\website\HomeController;
@@ -48,6 +49,7 @@ Route::prefix('/admin')->group(function(){
         });
         Route::resource('experience',ExperienceController::class);
         Route::resource('education',EducationController::class);
+        Route::resource('service',ServiceController::class);
     });
 });
 
