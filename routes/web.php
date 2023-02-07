@@ -7,6 +7,7 @@ use App\Http\Controllers\backend\ExperienceController;
 use App\Http\Controllers\backend\ServiceController;
 use App\Http\Controllers\backend\SkillController;
 use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\backend\WorkController;
 use App\Http\Controllers\website\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,9 +48,16 @@ Route::prefix('/admin')->group(function(){
             Route::put('/skill-update/{id}','update')->name('skill.update');
             Route::get('/skill-delete/{id}','delete')->name('skill.delete');
         });
+        #experience
         Route::resource('experience',ExperienceController::class);
+        #education
         Route::resource('education',EducationController::class);
+        #service
         Route::resource('service',ServiceController::class);
+        #work
+        Route::controller(WorkController::class)->group(function(){
+            Route::get('/work-index','index')->name('work.index');
+        });
     });
 });
 
