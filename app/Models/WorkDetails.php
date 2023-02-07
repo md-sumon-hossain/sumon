@@ -11,7 +11,4 @@ class WorkDetails extends Model
     use HasFactory;
     protected $guarded=[];
 
-    public function workRelation(){
-        return $this->belongsTo(Work::class,'work_id','id');
-    }
 }

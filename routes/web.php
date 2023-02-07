@@ -57,6 +57,8 @@ Route::prefix('/admin')->group(function(){
         #work
         Route::controller(WorkController::class)->group(function(){
             Route::get('/work-index','index')->name('work.index');
+            Route::get('/work-create','create')->name('work.create');
+            Route::post('/work-store','store')->name('work.store');
         });
     });
 });

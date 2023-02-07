@@ -4,7 +4,7 @@
   <h1 class=" text-3xl">Works</h1>
 </div>
 <div class=" m-5">
-  <a href="#">
+  <a href="{{ route('admin.work.create') }}">
   <button type="button" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Add Work +</button>
 </a>
 </div>
@@ -45,9 +45,17 @@
       <tr class="">
         <td class="py-4 px-6">{{ $key+1 }}</td>
         <td class="py-4 px-6 uppercase">{{ $work->title }}</td>
-        <td class="py-4 px-6">{{ $skill->client}}</td>
-        {{-- <td class="py-4 px-6">{{ $skill->images}}</td> --}}
-        <td class="py-4 px-6">{{ $skill->details}}</td>
+        <td class="py-4 px-6">{{ $work->client}}</td>
+        <td class="py-4 px-6">
+            <div class="flex">
+                @foreach ($work->workRelation as $relation)
+                    <div class="col-md-4">
+                        <img src="{{ url('/works/',$relation->images) }}" class=" m-1 w-10 h-10 rounded" alt="">
+                    </div>
+                @endforeach
+            </div>
+        </td>
+        <td class="py-4 px-6">{{ $work->details}}</td>
         <td class="py-4 px-6">
           <div class="flex">
             <a href="#"class="text-indigo-600 hover:text-indigo-900">
