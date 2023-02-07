@@ -36,7 +36,7 @@ class WorkController extends Controller
             $work=Work::create([
                 'title'=>$request->title,
                 'client'=>$request->client,
-                'details'=>$request->name,
+                'details'=>$request->details,
             ]);
             # multiple image 
             $imageName=null;
@@ -59,5 +59,10 @@ class WorkController extends Controller
             notify()->error($th->getMessage());
             return redirect()->back();
         }
+    }
+
+    public function edit($id){
+        $work=Work::find($id);
+        return view('backend.pages.work.edit',compact('work'));
     }
 }
