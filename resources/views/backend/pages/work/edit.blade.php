@@ -4,7 +4,7 @@
     <h1 class="m-5 text-5xl">Update your Work </h1>
 </div>
 <div class="m-10">
-    <form action="#" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.work.update',$work->id) }}" method="POST" enctype="multipart/form-data">
         @method('put')
         @csrf
         @includeIf('backend.pages.work.fields')

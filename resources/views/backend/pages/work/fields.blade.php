@@ -1,6 +1,6 @@
 <div>
     <label for="title" class="block mb-2  font-medium text-gray-900 dark:text-white">Title</label>
-    <input type="text" name="title" id="title" aria-describedby="title-explanation" class="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-gray-900 focus:border-gray-900 block w-96 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-900 dark:focus:border-gray-900" placeholder="Title of skill" value="{{old('title',$work->title)}}" required>
+    <input type="text" name="title" id="title" aria-describedby="title-explanation" class="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-gray-900 focus:border-gray-900 block w-96 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-900 dark:focus:border-gray-900" placeholder="Title of skill" value="{{old('title',$work->title)}}" >
 </div>
 <div class=" mt-4">
     <label for="client" class="block mb-2  font-medium text-gray-900 dark:text-white">Client</label>

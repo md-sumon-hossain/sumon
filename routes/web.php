@@ -60,6 +60,7 @@ Route::prefix('/admin')->group(function(){
             Route::get('/work-create','create')->name('work.create');
             Route::post('/work-store','store')->name('work.store');
             Route::get('/work-edit/{id}','edit')->name('work.edit');
+            Route::put('/work-update/{id}','update')->name('work.update');
         });
     });
 });
